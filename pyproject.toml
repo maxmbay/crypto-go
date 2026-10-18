@@ -1,7 +1,35 @@
 [project]
 name = "crypto-go"
 version = "0.1.0"
-description = "Add your description here"
+description = "Market-only crypto forecast bake-off"
 readme = "README.md"
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+  "lightgbm>=4.6",
+  "numpy>=2.0",
+  "polars>=1.30",
+  "pyarrow>=20",
+  "scikit-learn>=1.6",
+  "torch>=2.6",
+]
+
+[project.scripts]
+bakeoff = "cryptogo.bakeoff:main"
+
+[dependency-groups]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cryptogo"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=9.1.1",
+]

@@ -11,3 +11,7 @@ build/
 
 # OS
 .DS_Store
+
+# Market data and experiment outputs
+data/
+outputs/
